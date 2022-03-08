@@ -75,3 +75,200 @@ int main(int argc, char *argv[]) ///主函式 進階版
 顯現出c++的格式，鍵盤左上角的撇
 "```"
 ```
+
+
+#week03
+
+##2-2 移動茶壺
+```c++
+#include <GL/glut.h>
+
+
+
+void display()
+
+{
+
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    glPushMatrix(); ///備份舊矩陣位置，因為會修改矩陣，所以移動會累積
+
+    glTranslatef(0.5,0.5,0);///往右上角跑
+
+    glColor3d(1,0,1);///色彩
+
+
+
+    glutSolidTeapot(0.6);
+
+    glPopMatrix(); ///還原舊矩陣
+
+    glutSwapBuffers();
+
+}
+
+
+
+int main(int argc, char *argv[])
+
+{
+
+    glutInit(&argc, argv);
+
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH);
+
+
+
+    glutCreateWindow("week03 移動茶壺");
+
+
+
+    glutDisplayFunc(display);
+
+
+
+    glutMainLoop();
+
+
+}
+```
+
+##2-3  四個茶壺
+
+```c++
+#include <GL/glut.h>
+
+void myTeapot(float x,float y)
+
+{
+
+    glPushMatrix(); ///備份舊矩陣位置，因為會修改矩陣，所以移動會累積
+
+    glTranslatef(x,y,0);
+
+    glColor3d(1,0,0);///色彩
+
+    glutSolidTeapot(0.3);
+
+    glPopMatrix(); ///還原舊矩陣
+
+}
+
+void display()
+
+{
+
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    myTeapot(0.5,0.5);
+
+    myTeapot(-0.5,-0.5);
+
+    myTeapot(-0.5,0.5);
+
+    myTeapot(0.5,-0.5);
+
+    glutSwapBuffers();
+
+}
+
+
+
+int main(int argc, char *argv[])
+
+{
+
+    glutInit(&argc, argv);
+
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH);
+
+
+
+    glutCreateWindow("week03 移動茶壺");
+
+
+
+    glutDisplayFunc(display);
+
+
+
+    glutMainLoop();
+
+}
+```
+
+##2-4  滑鼠移動(只限點，押著不行)
+
+```c++
+#include <GL/glut.h>
+float mouseX=0,mouseY=0;///新加
+void myTeapot(float x,float y)
+{
+    glPushMatrix();
+    glTranslatef(x,y,0);
+    glColor3d(1,0,0);
+    glutSolidTeapot(0.3);
+    glPopMatrix();
+}
+void display()
+{
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    myTeapot(  (mouseX-150)/150.0,-(mouseY-150)/150.0  );///新加
+    glutSwapBuffers();
+}
+void mouse(int button,int state,int x,int y)
+{
+    mouseX=x,mouseY=y;///新加
+}
+int main(int argc, char *argv[])
+{
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH);
+
+    glutCreateWindow("week03 移動茶壺");
+
+    glutDisplayFunc(display);
+    glutMouseFunc(mouse);///新加，滑鼠
+
+    glutMainLoop();
+}
+```
+
+##2-5  印出滑鼠座標(按一放一)
+
+```c++
+#include <GL/glut.h>
+#include <stdio.h>///printf用
+float mouseX=0,mouseY=0;
+void myTeapot(float x,float y)
+{
+    glPushMatrix();
+    glTranslatef(x,y,0);
+    glColor3d(1,0,0);
+    glutSolidTeapot(0.3);
+    glPopMatrix();
+}
+void display()
+{
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    myTeapot(  (mouseX-150)/150.0,-(mouseY-150)/150.0  );///視窗預設300*300
+    glutSwapBuffers();
+}
+void mouse(int button,int state,int x,int y)
+{
+    printf("%d %d %d %d\n",button,state,x,y);///印出滑鼠座標，按一個，放一個
+    mouseX=x,mouseY=y;
+}
+int main(int argc, char *argv[])
+{
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH);
+
+    glutCreateWindow("week03 移動茶壺");
+
+    glutDisplayFunc(display);
+    glutMouseFunc(mouse);///滑鼠
+
+    glutMainLoop();
+}
+```
