@@ -1,5 +1,6 @@
 # 2022graphics1
 
+#week02
 ##2-1 茶壺
 ```C++
 #include <GL/glut.h> ///使用GLUT外掛簡化程式
@@ -270,5 +271,121 @@ int main(int argc, char *argv[])
     glutMouseFunc(mouse);///滑鼠
 
     glutMainLoop();
+}
+```
+#week04
+##1-2 rotate teapot
+```c++
+#include <GL/glut.h> 
+
+
+
+void display()
+
+{
+
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    glPushMatrix();
+
+        glRotated(90, 0,0,1);///旋轉
+
+        glutSolidTeapot(0.5);
+
+    glPopMatrix();
+
+    glutSwapBuffers();
+
+}
+
+
+
+int main(int argc, char *argv[]) 
+
+{
+
+    glutInit(&argc, argv); 
+
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH); 
+
+
+
+    glutCreateWindow("week04旋轉"); 
+
+
+
+    glutDisplayFunc(display); 
+
+
+
+    glutMainLoop(); 
+
+
+}
+```
+##1-3 mouse rotate teapot
+```c++
+#include <GL/glut.h>
+
+float angle=0;///angle為0
+
+void display()
+
+{
+
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    glPushMatrix();///備份
+
+        glRotated(angle, 0,0,1);
+
+
+
+        glutSolidTeapot(0.5);
+
+    glPopMatrix();///還原
+
+    glutSwapBuffers();
+
+}
+
+
+
+void motion(int x,int y)
+
+{
+
+    angle=x;///angle=x軸?
+
+    display();///重畫畫面
+
+}
+
+
+
+int main(int argc, char *argv[])
+
+{
+
+    glutInit(&argc, argv);
+
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH);
+
+
+
+    glutCreateWindow("week04旋轉");
+
+
+
+    glutDisplayFunc(display);
+
+
+
+    glutMotionFunc(motion);///mouse motion
+
+
+
+    glutMainLoop();
+
 }
 ```
