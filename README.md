@@ -274,7 +274,9 @@ int main(int argc, char *argv[])
 }
 ```
 #week04
+
 ##1-2 rotate teapot
+
 ```c++
 #include <GL/glut.h> 
 
@@ -323,7 +325,9 @@ int main(int argc, char *argv[])
 
 }
 ```
+
 ##1-3 mouse rotate teapot
+
 ```c++
 #include <GL/glut.h>
 
