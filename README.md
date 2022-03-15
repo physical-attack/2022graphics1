@@ -1,8 +1,8 @@
 # 2022graphics1
 
-#week02
+# week02
 
-##2-1 茶壺
+## 2-1 茶壺
 ```C++
 #include <GL/glut.h> ///使用GLUT外掛簡化程式
 
@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) ///主函式 進階版
 }
 ```
 
-##2-2 多邊形
+## 2-2 多邊形
 ```c++
 #include <GL/glut.h> ///使用GLUT外掛簡化程式
 
@@ -65,7 +65,7 @@ int main(int argc, char *argv[]) ///主函式 進階版
 }
 ```
 
-##3-1  上傳到github
+## 3-1  上傳到github
 ```c++
 把 README.md檔 用 markdown MD語法編輯
 
@@ -79,9 +79,9 @@ int main(int argc, char *argv[]) ///主函式 進階版
 ```
 
 
-#week03
+# week03
 
-##2-2 移動茶壺
+## 2-2 移動茶壺
 ```c++
 #include <GL/glut.h>
 
@@ -135,7 +135,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-##2-3  四個茶壺
+## 2-3  四個茶壺
 
 ```c++
 #include <GL/glut.h>
@@ -199,7 +199,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-##2-4  滑鼠移動(只限點，押著不行)
+## 2-4  滑鼠移動(只限點，押著不行)
 
 ```c++
 #include <GL/glut.h>
@@ -236,7 +236,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-##2-5  印出滑鼠座標(按一放一)
+## 2-5  印出滑鼠座標(按一放一)
 
 ```c++
 #include <GL/glut.h>
@@ -274,9 +274,9 @@ int main(int argc, char *argv[])
     glutMainLoop();
 }
 ```
-#week04
+# week04
 
-##1-2 rotate teapot
+## 1-2 rotate teapot
 
 ```c++
 #include <GL/glut.h> 
@@ -327,7 +327,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-##1-3 mouse rotate teapot(會重置)
+## 1-3 mouse rotate teapot(會重置)
 
 ```c++
 #include <GL/glut.h>
@@ -395,7 +395,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-##1-4 mouse rotate teapot(不會重置)
+## 1-4 mouse rotate teapot(不會重置)
 
 ```c++
 #include <GL/glut.h>
