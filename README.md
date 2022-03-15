@@ -1,6 +1,7 @@
 # 2022graphics1
 
 #week02
+
 ##2-1 茶壺
 ```C++
 #include <GL/glut.h> ///使用GLUT外掛簡化程式
