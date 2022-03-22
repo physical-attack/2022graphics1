@@ -490,7 +490,52 @@ int main(int argc,char**argv)
 }
 ```
 ## 2-2把上週、上上週的加進去，但中間空白
+```c++
+#include <GL/glut.h>
+#include <stdio.h>
 
+float x=0,y=0,z=0;
+int oldX=0,oldY=0;
+
+void display()
+{
+    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+    glPushMatrix();
+        glTranslatef((x-150)/150.0 , -(y-150)/150.0, z);
+        glColor3f(1,1,0);
+        glutSolidTeapot(0.5);
+    glPopMatrix();
+    glutSwapBuffers();
+}
+
+void keyboard( unsigned char key,int x,int y )
+{
+
+}
+
+void mouse(int button , int state , int x , int y)
+{
+
+}
+
+void motion(int x ,int y)
+{
+    
+}
+
+int main(int argc,char**argv)
+{
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_DOUBLE|GLUT_DEPTH);
+    glutCreateWindow("week keyboard");
+
+    glutDisplayFunc(display);
+    glutKeyboardFunc(keyboard);///this week
+    glutMouseFunc(mouse);///last last week
+    glutMotionFunc(motion);///last week
+    glutMainLoop();
+}
+```
 ## 2-3加入motion並做宣告修改
 ```c++
 #include <GL/glut.h>
