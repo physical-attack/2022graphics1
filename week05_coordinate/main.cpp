@@ -10,7 +10,7 @@ void display()
 
 void keyboard( unsigned char key,int x,int y )
 {
-    printf("§A«ö¤U¤F %c ¦b %d %d ®y¼Ð\n",key,x,y);
+    printf("ä½ æŒ‰ä¸‹äº† %c åœ¨ %d %d åº§æ¨™ \n",key,x,y);
 }
 int main(int argc,char**argv)
 {
