@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1654334927 source:c:\users\123\desktop\week15_sync async\main.cpp
+	<stdio.h>
+	<windows.h>
+
